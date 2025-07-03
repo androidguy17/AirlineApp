@@ -20,7 +20,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    suspend fun providesFlightApi(): AirlineApi{
+     fun providesFlightApi(): AirlineApi{
         return Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
