@@ -130,6 +130,10 @@ https://github.com/typicode/json-server/tree/v0
 - add db.json (which i have attached in webserver-files>db.json) in this project
 -  add this to your  scripts"serve-json": "json-server --watch db.json --host 10.0.2.2 --port 3000"
 ```bash
+json-server --watch db.json --host 10.0.2.2 --port 3000
+```
+or if you have added script from my webserver-files/package.json then 
+```bash
 npm run serve-json
 ```
 
