@@ -247,12 +247,40 @@ If testing on a physical device, you'll need to:
 - uses http://10.0.2.2:3000/flights?_page=2. to paginate
 
 
-## 📱 Screenshots
-[![Logo](images/flight_list.png)](images/flight_list.png)
-![](images/flight_list.png)  
-![](images/flight_details.png)  
-![](images/favorites_screen.png)  
-![](images/dark_mode.png)  
+### 📱 App Screenshots
+
+<table>
+  <tr>
+    <td align="center">
+      <strong>Main Screen</strong><br/>
+      <img src="https://cdn.allthepics.net/images/2025/07/04/main_working.png" width="350"/>
+    </td>
+    <td align="center">
+      <strong>Favourites</strong><br/>
+      <img src="https://cdn.allthepics.net/images/2025/07/04/fav_screen.png" width="350"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <strong>Empty Favourites</strong><br/>
+      <img src="https://cdn.allthepics.net/images/2025/07/04/fav_empty.png" width="350"/>
+    </td>
+    <td align="center">
+      <strong>No Internet</strong><br/>
+      <img src="https://cdn.allthepics.net/images/2025/07/04/noInternet.png" width="350"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <strong>Detail Screen</strong><br/>
+      <img src="https://cdn.allthepics.net/images/2025/07/04/detail_screen.png" width="350"/>
+    </td>
+    <td align="center">
+      <strong>No Image Preview</strong><br/>
+      <img src="https://cdn.allthepics.net/images/2025/07/04/noImage_preview.png" width="350"/>
+    </td>
+  </tr>
+</table>
 
 ---
 
