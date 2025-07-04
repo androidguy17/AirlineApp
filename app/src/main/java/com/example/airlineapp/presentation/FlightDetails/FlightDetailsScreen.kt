@@ -202,18 +202,22 @@ fun FlightDetailsScreen(
 
                     // Info Cards
                     Row(
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier = Modifier.fillMaxWidth()
+                            .height(IntrinsicSize.Min),
                         horizontalArrangement = Arrangement.spacedBy(16.dp)
                     ) {
                         InfoCard(
                             title = "Headquarters",
                             value = airlineData.headquarters,
                             modifier = Modifier.weight(1f)
+                                .fillMaxHeight()
                         )
                         InfoCard(
                             title = "Fleet Size",
                             value = airlineData.fleet_size.toString(),
                             modifier = Modifier.weight(1f)
+                                .fillMaxHeight()
+
                         )
                     }
 
