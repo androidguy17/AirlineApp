@@ -248,7 +248,7 @@ If testing on a physical device, you'll need to:
 
 
 ## 📱 Screenshots
-
+[![Logo](images/flight_list.png)](images/flight_list.png)
 ![](images/flight_list.png)  
 ![](images/flight_details.png)  
 ![](images/favorites_screen.png)  
