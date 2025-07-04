@@ -41,6 +41,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.airlineapp.domain.model.FlightItemModel
 import com.example.airlineapp.presentation.FlightList.Components.AirlineItem
+import com.example.airlineapp.presentation.Screen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -106,7 +107,14 @@ fun FlightListScreen(
                     verticalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
                     items(state.flights) { airline ->
-                        AirlineItem(airline = airline)
+                        AirlineItem(
+                            airline = airline,
+                            onItemClick = { selectedAirline ->
+                                navController.navigate(
+                                    Screen.FlightDetailsScreen.createRoute(selectedAirline.id)
+                                )
+                            }
+                        )
                     }
                 }
             }

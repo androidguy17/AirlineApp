@@ -15,6 +15,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.airlineapp.presentation.FlightDetails.FlightDetailsScreen
 import com.example.airlineapp.presentation.FlightList.FlightListScreen
 import com.example.airlineapp.presentation.ui.theme.AirlineAppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,12 +37,15 @@ class MainActivity : ComponentActivity() {
                     ) {
                         FlightListScreen(navController)
                     }
-                    //TODO: delete this commennt
-//                    composable(
-//                        route = Screen.AirlinesScreen.route
-//                    ) {
-//                        AirlinesScreen(navController)
-//                    }
+                    composable(
+                        route = "flight_details_screen/{airlineId}"
+                    ) { backStackEntry ->
+                        val airlineId = backStackEntry.arguments?.getString("airlineId") ?: ""
+                        FlightDetailsScreen(
+                            navController = navController,
+                            airlineId = airlineId
+                        )
+                    }
                 }
             }
         }

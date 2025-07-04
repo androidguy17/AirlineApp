@@ -32,11 +32,14 @@ import coil.compose.AsyncImage
 import com.example.airlineapp.domain.model.FlightItemModel
 
 @Composable
-fun AirlineItem(airline: FlightItemModel) {
+fun AirlineItem(
+    airline: FlightItemModel,
+    onItemClick: (FlightItemModel) -> Unit = {}
+) {
     Surface(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { },
+            .clickable { onItemClick(airline) },
         shape = RoundedCornerShape(8.dp),
         color = MaterialTheme.colorScheme.surface,
         tonalElevation = 1.dp
@@ -62,12 +65,11 @@ fun AirlineItem(airline: FlightItemModel) {
                     if (!airline.logo_url.isNullOrBlank() && !imageLoadFailed) {
                         AsyncImage(
                             model = airline.logo_url,
-
                             contentDescription = "${airline.name} logo",
                             modifier = Modifier
                                 .fillMaxSize()
                                 .clip(RoundedCornerShape(12.dp)),
-                            contentScale = ContentScale.FillBounds,
+                            contentScale = ContentScale.Fit,
                             onSuccess = {
                                 imageLoadFailed = false
                             },
