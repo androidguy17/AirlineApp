@@ -14,7 +14,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-
 import androidx.navigation.compose.rememberNavController
 import com.example.airlineapp.presentation.FlightList.FlightListScreen
 import com.example.airlineapp.presentation.ui.theme.AirlineAppTheme
@@ -37,6 +36,12 @@ class MainActivity : ComponentActivity() {
                     ) {
                         FlightListScreen(navController)
                     }
+                    //TODO: delete this commennt
+//                    composable(
+//                        route = Screen.AirlinesScreen.route
+//                    ) {
+//                        AirlinesScreen(navController)
+//                    }
                 }
             }
         }
