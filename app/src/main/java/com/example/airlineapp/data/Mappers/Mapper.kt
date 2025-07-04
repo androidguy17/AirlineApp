@@ -1,6 +1,7 @@
 package com.example.airlineapp.data.Mappers
 
 import com.example.airlineapp.data.local.FlightEntity
+import com.example.airlineapp.data.local.FavoritesEntity
 import com.example.airlineapp.data.remote.dto.FlightApiResponse
 import com.example.airlineapp.data.remote.dto.FlightDtoItem
 import com.example.airlineapp.domain.model.FlightItemModel
@@ -32,14 +33,26 @@ fun FlightEntity.toFlightItemModel(): FlightItemModel {
     )
 }
 
-//fun FlightDtoItem.toFlightItemModel(): FlightItemModel {
-//    return FlightItemModel(
-//        id = id,
-//        country = country,
-//        fleet_size = fleet_size,
-//        headquarters = headquarters,
-//        logo_url = logo_url,
-//        name = name,
-//        website = website
-//    )
-//}
+fun FavoritesEntity.toFlightItemModel(): FlightItemModel {
+    return FlightItemModel(
+        id = id,
+        country = country,
+        fleet_size = fleet_size,
+        headquarters = headquarters,
+        logo_url = logo_url,
+        name = name,
+        website = website
+    )
+}
+
+fun FlightItemModel.toFavoritesEntity(): FavoritesEntity {
+    return FavoritesEntity(
+        id = id,
+        country = country,
+        fleet_size = fleet_size,
+        headquarters = headquarters,
+        logo_url = logo_url,
+        name = name,
+        website = website
+    )
+}

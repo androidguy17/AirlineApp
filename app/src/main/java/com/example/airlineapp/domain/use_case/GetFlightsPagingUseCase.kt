@@ -9,7 +9,11 @@ import javax.inject.Inject
 class GetFlightsPagingUseCase @Inject constructor(
     private val repository: FlightRepository
 ) {
-    operator fun invoke(): Flow<PagingData<FlightItemModel>> {
-        return repository.getFlightsPagingData()
+    operator fun invoke(searchQuery: String? = null): Flow<PagingData<FlightItemModel>> {
+        return if (searchQuery.isNullOrBlank()) {
+            repository.getFlightsPagingData()
+        } else {
+            repository.searchFlightsPagingData(searchQuery)
+        }
     }
 }

@@ -6,7 +6,9 @@ import com.example.airlineapp.common.Constants
 import com.example.airlineapp.data.local.FlightDatabase
 import com.example.airlineapp.data.remote.AirlineApi
 import com.example.airlineapp.data.repository.FlightRepositoryImp
+import com.example.airlineapp.data.repository.FavoritesRepositoryImpl
 import com.example.airlineapp.domain.repository.FlightRepository
+import com.example.airlineapp.domain.repository.FavoritesRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -48,5 +50,13 @@ object AppModule {
         database: FlightDatabase
     ): FlightRepository {
         return FlightRepositoryImp(api, database)
+    }
+
+    @Provides
+    @Singleton
+    fun provideFavoritesRepository(
+        database: FlightDatabase
+    ): FavoritesRepository {
+        return FavoritesRepositoryImpl(database)
     }
 }

@@ -1,6 +1,7 @@
 package com.example.airlineapp.presentation.FlightList
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.runtime.collectAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -42,6 +43,7 @@ import androidx.navigation.NavController
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.example.airlineapp.domain.model.FlightItemModel
+import com.example.airlineapp.presentation.Favorites.BottomNavigation
 import com.example.airlineapp.presentation.FlightList.Components.AirlineItem
 import com.example.airlineapp.presentation.Screen
 
@@ -53,7 +55,7 @@ fun FlightListScreen(
 
     // Collect paginated flights
     val flights = viewModel.flightsPagingFlow.collectAsLazyPagingItems()
-    var searchText by remember { mutableStateOf("") }
+    val searchText by viewModel.searchQuery.collectAsState()
 
     Scaffold(
         topBar = {
@@ -68,7 +70,10 @@ fun FlightListScreen(
             )
         },
         bottomBar = {
-            BottomNavigation()
+            BottomNavigation(
+                currentScreen = "all",
+                navController = navController
+            )
         },
         containerColor = MaterialTheme.colorScheme.background
     ) { paddingValues ->
@@ -81,7 +86,7 @@ fun FlightListScreen(
             if (flights.itemCount > 0 || flights.loadState.refresh is LoadState.Loading) {
                 OutlinedTextField(
                     value = searchText,
-                    onValueChange = { searchText = it },
+                    onValueChange = { viewModel.updateSearchQuery(it) },
                     placeholder = {
                         Text(text = "Search airlines")
                     },
@@ -182,44 +187,3 @@ fun FlightListScreen(
     }
 }
 
-@Composable
-fun BottomNavigation() {
-    NavigationBar(
-        containerColor = MaterialTheme.colorScheme.surface,
-        contentColor = MaterialTheme.colorScheme.onSurface
-    ) {
-        NavigationBarItem(
-            icon = {
-                Icon(
-                    imageVector = Icons.Default.Menu,
-                    contentDescription = "View All"
-                )
-            },
-            label = {
-                Text(
-                    text = "View All",
-                    fontSize = 12.sp
-                )
-            },
-            selected = true,
-            onClick = { }
-        )
-
-        NavigationBarItem(
-            icon = {
-                Icon(
-                    imageVector = Icons.Default.Favorite,
-                    contentDescription = "Favorites"
-                )
-            },
-            label = {
-                Text(
-                    text = "Favorites",
-                    fontSize = 12.sp
-                )
-            },
-            selected = false,
-            onClick = { }
-        )
-    }
-}

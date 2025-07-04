@@ -8,4 +8,6 @@ import kotlinx.coroutines.flow.Flow
 interface FlightRepository {
 
     fun getFlightsPagingData(): Flow<PagingData<FlightItemModel>>
+
+    fun searchFlightsPagingData(searchQuery: String): Flow<PagingData<FlightItemModel>>
 }

@@ -47,4 +47,22 @@ class FlightRepositoryImp @Inject constructor(
             }
         }
     }
+
+    override fun searchFlightsPagingData(searchQuery: String): Flow<PagingData<FlightItemModel>> {
+        return Pager(
+            config = PagingConfig(
+                pageSize = 20,
+                enablePlaceholders = false,
+                prefetchDistance = 5,
+                initialLoadSize = 20
+            ),
+            pagingSourceFactory = {
+                database.dao.searchPagingSource(searchQuery)
+            }
+        ).flow.map { pagingData ->
+            pagingData.map { flightEntity ->
+                flightEntity.toFlightItemModel()
+            }
+        }
+    }
 }

@@ -39,6 +39,7 @@ fun FlightDetailsScreen(
 ) {
     val context = LocalContext.current
     val airlineState by viewModel.airlineState.collectAsState()
+    val isFavorite by viewModel.isFavorite.collectAsState()
 
     // Load airline data when the screen is first composed
     LaunchedEffect(airlineId) {
@@ -242,17 +243,17 @@ fun FlightDetailsScreen(
 
                     // Add to Favourites Button
                     Button(
-                        onClick = { /* Handle add to favourites */ },
+                        onClick = { viewModel.toggleFavorite() },
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(56.dp),
                         colors = ButtonDefaults.buttonColors(
-                            containerColor = MaterialTheme.colorScheme.primary
+                            containerColor = if (isFavorite) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary
                         ),
                         shape = RoundedCornerShape(16.dp)
                     ) {
                         Text(
-                            text = "Add to Favourites",
+                            text = if (isFavorite) "Remove from Favourites" else "Add to Favourites",
                             fontSize = 16.sp,
                             fontWeight = FontWeight.Medium,
                             color = MaterialTheme.colorScheme.onPrimary

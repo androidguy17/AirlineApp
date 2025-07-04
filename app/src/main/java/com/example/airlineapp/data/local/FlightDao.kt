@@ -14,6 +14,9 @@ interface FlightDao {
     @Query("SELECT * FROM flightentity")
     fun pagingSource(): PagingSource<Int, FlightEntity>
 
+    @Query("SELECT * FROM flightentity WHERE name LIKE '%' || :searchQuery || '%'")
+    fun searchPagingSource(searchQuery: String): PagingSource<Int, FlightEntity>
+
     @Query("SELECT * FROM flightentity WHERE id = :flightId")
     suspend fun getFlightById(flightId: String): FlightEntity?
 

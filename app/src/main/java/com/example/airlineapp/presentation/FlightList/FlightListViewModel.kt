@@ -12,18 +12,26 @@ import com.example.airlineapp.domain.model.FlightItemModel
 import com.example.airlineapp.domain.use_case.GetFlightsPagingUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.flatMapLatest
 import javax.inject.Inject
 
 @HiltViewModel
 class FlightListViewModel @Inject constructor(
     private val getFlightsPagingUseCase: GetFlightsPagingUseCase
 ): ViewModel() {
-
-    //old state not getting used now
-//    private val _state = mutableStateOf(FlightListState())
-//    val state: State<FlightListState> = _state
+    
+    private val _searchQuery = MutableStateFlow("")
+    val searchQuery: StateFlow<String> = _searchQuery
 
     val flightsPagingFlow: Flow<PagingData<FlightItemModel>> =
-        getFlightsPagingUseCase().cachedIn(viewModelScope)
+        _searchQuery.flatMapLatest { query ->
+            getFlightsPagingUseCase(query.takeIf { it.isNotBlank() })
+        }.cachedIn(viewModelScope)
+
+    fun updateSearchQuery(query: String) {
+        _searchQuery.value = query
+    }
 
 }
