@@ -65,146 +65,146 @@
     },
     {
       "id": "8",
-      "name": "Delta Air Lines",
-      "country": "United States",
-      "headquarters": "Atlanta, Georgia",
-      "fleet_size": 910,
-      "website": "https://www.delta.com",
-      "logo_url": "https://cdn.allthepics.net/images/2025/07/03/delta.png"
+      "name": "Orion Skies",
+      "country": "Canada",
+      "headquarters": "Toronto Pearson Airport",
+      "fleet_size": 120,
+      "website": "https://www.orionskies.ca",
+      "logo_url": "https://cdn.allthepics.net/images/2025/07/04/orion.png"
     },
     {
       "id": "9",
-      "name": "Delta Air Lines",
-      "country": "United States",
-      "headquarters": "Atlanta, Georgia",
-      "fleet_size": 910,
-      "website": "https://www.delta.com",
-      "logo_url": "https://cdn.allthepics.net/images/2025/07/03/delta.png"
+      "name": "Zenith Air",
+      "country": "Australia",
+      "headquarters": "Sydney Kingsford Smith Airport",
+      "fleet_size": 95,
+      "website": "https://www.zenithair.au",
+      "logo_url": "https://cdn.allthepics.net/images/2025/07/04/zenith.png"
     },
     {
       "id": "10",
-      "name": "Delta Air Lines",
-      "country": "United States",
-      "headquarters": "Atlanta, Georgia",
-      "fleet_size": 910,
-      "website": "https://www.delta.com",
-      "logo_url": "https://cdn.allthepics.net/images/2025/07/03/delta.png"
+      "name": "Nimbus Airways",
+      "country": "United Kingdom",
+      "headquarters": "Heathrow Airport, London",
+      "fleet_size": 200,
+      "website": "https://www.nimbusair.co.uk",
+      "logo_url": "https://cdn.allthepics.net/images/2025/07/04/nimbus.png"
     },
     {
       "id": "11",
-      "name": "lama Air Lines",
-      "country": "United States",
-      "headquarters": "Atlanta, Georgia",
-      "fleet_size": 910,
-      "website": "https://www.delta.com",
-      "logo_url": "https://cdn.allthepics.net/images/2025/07/03/delta.png"
+      "name": "StellarJet",
+      "country": "Germany",
+      "headquarters": "Frankfurt Airport",
+      "fleet_size": 160,
+      "website": "https://www.stellarjet.de",
+      "logo_url": "https://cdn.allthepics.net/images/2025/07/04/stellar.png"
     },
     {
       "id": "12",
-      "name": "lama Air Lines",
-      "country": "United States",
-      "headquarters": "Atlanta, Georgia",
-      "fleet_size": 910,
-      "website": "https://www.delta.com",
-      "logo_url": "https://cdn.allthepics.net/images/2025/07/03/delta.png"
+      "name": "AeroNova",
+      "country": "France",
+      "headquarters": "Charles de Gaulle Airport, Paris",
+      "fleet_size": 180,
+      "website": "https://www.aeronova.fr",
+      "logo_url": "https://cdn.allthepics.net/images/2025/07/04/aeronova.png"
     },
     {
       "id": "13",
-      "name": "lama Air Lines",
-      "country": "United States",
-      "headquarters": "Atlanta, Georgia",
-      "fleet_size": 910,
-      "website": "https://www.delta.com",
-      "logo_url": "https://cdn.allthepics.net/images/2025/07/03/delta.png"
+      "name": "SkyDrift",
+      "country": "India",
+      "headquarters": "Indira Gandhi International Airport, Delhi",
+      "fleet_size": 140,
+      "website": "https://www.skydrift.in",
+      "logo_url": "https://cdn.allthepics.net/images/2025/07/04/skydrift.png"
     },
     {
       "id": "14",
-      "name": "lama Air Lines",
-      "country": "United States",
-      "headquarters": "Atlanta, Georgia",
-      "fleet_size": 910,
-      "website": "https://www.delta.com",
-      "logo_url": "https://cdn.allthepics.net/images/2025/07/03/delta.png"
+      "name": "Pacific Wings",
+      "country": "New Zealand",
+      "headquarters": "Auckland Airport",
+      "fleet_size": 70,
+      "website": "https://www.pacificwings.nz",
+      "logo_url": "https://cdn.allthepics.net/images/2025/07/04/pacific.png"
     },
     {
       "id": "15",
-      "name": "lama Air Lines",
-      "country": "United States",
-      "headquarters": "Atlanta, Georgia",
-      "fleet_size": 910,
-      "website": "https://www.delta.com",
-      "logo_url": "https://cdn.allthepics.net/images/2025/07/03/delta.png"
+      "name": "Falcon Express",
+      "country": "UAE",
+      "headquarters": "Dubai International Airport",
+      "fleet_size": 210,
+      "website": "https://www.falconexpress.ae",
+      "logo_url": "https://cdn.allthepics.net/images/2025/07/04/falcon.png"
     },
     {
       "id": "16",
-      "name": "lama Air Lines",
-      "country": "United States",
-      "headquarters": "Atlanta, Georgia",
-      "fleet_size": 910,
-      "website": "https://www.delta.com",
-      "logo_url": "https://cdn.allthepics.net/images/2025/07/03/delta.png"
+      "name": "Snowbird Air",
+      "country": "Sweden",
+      "headquarters": "Stockholm Arlanda Airport",
+      "fleet_size": 65,
+      "website": "https://www.snowbird.se",
+      "logo_url": "https://cdn.allthepics.net/images/2025/07/04/snowbird.png"
     },
     {
       "id": "17",
-      "name": "lama Air Lines",
-      "country": "United States",
-      "headquarters": "Atlanta, Georgia",
-      "fleet_size": 910,
-      "website": "https://www.delta.com",
-      "logo_url": "https://cdn.allthepics.net/images/2025/07/03/delta.png"
+      "name": "Solaris Air",
+      "country": "Spain",
+      "headquarters": "Barcelona–El Prat Airport",
+      "fleet_size": 130,
+      "website": "https://www.solarisair.es",
+      "logo_url": "https://cdn.allthepics.net/images/2025/07/04/solaris.png"
     },
     {
       "id": "18",
-      "name": "lama Air Lines",
-      "country": "United States",
-      "headquarters": "Atlanta, Georgia",
-      "fleet_size": 910,
-      "website": "https://www.delta.com",
-      "logo_url": "https://cdn.allthepics.net/images/2025/07/03/delta.png"
+      "name": "JetHawk",
+      "country": "South Africa",
+      "headquarters": "O. R. Tambo International Airport",
+      "fleet_size": 110,
+      "website": "https://www.jethawk.co.za",
+      "logo_url": "https://cdn.allthepics.net/images/2025/07/04/jethawk.png"
     },
     {
       "id": "19",
-      "name": "lama Air Lines",
-      "country": "United States",
-      "headquarters": "Atlanta, Georgia",
-      "fleet_size": 910,
-      "website": "https://www.delta.com",
-      "logo_url": "https://cdn.allthepics.net/images/2025/07/03/delta.png"
+      "name": "Blue Comet",
+      "country": "Japan",
+      "headquarters": "Narita International Airport, Tokyo",
+      "fleet_size": 175,
+      "website": "https://www.bluecomet.jp",
+      "logo_url": "https://cdn.allthepics.net/images/2025/07/04/bluecomet.png"
     },
     {
       "id": "20",
-      "name": "lama Air Lines",
-      "country": "United States",
-      "headquarters": "Atlanta, Georgia",
-      "fleet_size": 910,
-      "website": "https://www.delta.com",
-      "logo_url": "https://cdn.allthepics.net/images/2025/07/03/delta.png"
+      "name": "Crimson Airways",
+      "country": "Brazil",
+      "headquarters": "São Paulo/Guarulhos International Airport",
+      "fleet_size": 155,
+      "website": "https://www.crimsonair.com.br",
+      "logo_url": "https://cdn.allthepics.net/images/2025/07/04/crimson.png"
     },
     {
       "id": "21",
-      "name": "lama Air Lines",
-      "country": "United States",
-      "headquarters": "Atlanta, Georgia",
-      "fleet_size": 910,
-      "website": "https://www.delta.com",
-      "logo_url": "https://cdn.allthepics.net/images/2025/07/03/delta.png"
+      "name": "Aurora Wings",
+      "country": "Russia",
+      "headquarters": "Sheremetyevo International Airport, Moscow",
+      "fleet_size": 190,
+      "website": "https://www.aurorawings.ru",
+      "logo_url": "https://cdn.allthepics.net/images/2025/07/04/aurora.png"
     },
     {
       "id": "22",
-      "name": "lama Air Lines",
-      "country": "United States",
-      "headquarters": "Atlanta, Georgia",
-      "fleet_size": 910,
-      "website": "https://www.delta.com",
-      "logo_url": "https://cdn.allthepics.net/images/2025/07/03/delta.png"
+      "name": "EchoFly",
+      "country": "Singapore",
+      "headquarters": "Changi Airport",
+      "fleet_size": 105,
+      "website": "https://www.echofly.sg",
+      "logo_url": "https://cdn.allthepics.net/images/2025/07/04/echofly.png"
     },
     {
       "id": "23",
-      "name": "SkyNova Airways",
+      "name": "SkySpecial Airways",
       "country": "Canada",
       "headquarters": "Toronto Pearson International",
       "fleet_size": 85,
-      "website": "https://www.skynova.ca",
+      "website": "https://www.special.ca",
       "logo_url": "https://cdn.allthepics.net/images/2025/07/04/skynova.png"
     },
     {
