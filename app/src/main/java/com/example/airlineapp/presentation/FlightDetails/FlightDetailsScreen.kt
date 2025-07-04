@@ -3,7 +3,6 @@ package com.example.airlineapp.presentation.FlightDetails
 import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -18,7 +17,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -31,30 +29,32 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.example.airlineapp.R
 import com.example.airlineapp.domain.model.FlightItemModel
-import com.example.airlineapp.presentation.FlightList.FlightListViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FlightDetailsScreen(
     navController: NavController,
     airlineId: String = "",
-    viewModel: FlightListViewModel = hiltViewModel()
+    viewModel: FlightDetailsViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
-    val state = viewModel.state.value
+    val airlineState by viewModel.airlineState.collectAsState()
 
-    // Find the airline by ID from the flight list
-    val airline = state.flights.find { it.id == airlineId }
+    // Load airline data when the screen is first composed
+    LaunchedEffect(airlineId) {
+        if (airlineId.isNotEmpty()) {
+            viewModel.getAirlineById(airlineId)
+        }
+    }
 
-    // Sample data if airline is not found
-    val airlineData = airline ?: FlightItemModel(
+    val airlineData = airlineState ?: FlightItemModel(
         id = "1",
-        name = "lama Air Lines",
-        country = "United States",
+        name = "Loading...",
+        country = "Loading...",
         logo_url = "",
-        headquarters = "Atlanta, Georgia",
-        fleet_size = 910,
-        website = "https://www.delta.com"
+        headquarters = "Loading...",
+        fleet_size = 0,
+        website = "https://example.com"
     )
 
     Scaffold(
@@ -64,22 +64,17 @@ fun FlightDetailsScreen(
                     Text(
                         text = "Airline Details",
                         fontSize = 20.sp,
-                        fontWeight = FontWeight.Medium,
-                        color = MaterialTheme.colorScheme.onSurface
+                        fontWeight = FontWeight.Medium
                     )
                 },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
                         Icon(
                             imageVector = Icons.Default.ArrowBack,
-                            contentDescription = "Back",
-                            tint = MaterialTheme.colorScheme.onSurface
+                            contentDescription = "Back"
                         )
                     }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surface
-                )
+                }
             )
         },
         containerColor = MaterialTheme.colorScheme.background
@@ -202,22 +197,18 @@ fun FlightDetailsScreen(
 
                     // Info Cards
                     Row(
-                        modifier = Modifier.fillMaxWidth()
-                            .height(IntrinsicSize.Min),
+                        modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(16.dp)
                     ) {
                         InfoCard(
                             title = "Headquarters",
                             value = airlineData.headquarters,
                             modifier = Modifier.weight(1f)
-                                .fillMaxHeight()
                         )
                         InfoCard(
                             title = "Fleet Size",
                             value = airlineData.fleet_size.toString(),
                             modifier = Modifier.weight(1f)
-                                .fillMaxHeight()
-
                         )
                     }
 

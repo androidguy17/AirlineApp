@@ -39,6 +39,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.paging.LoadState
+import androidx.paging.compose.collectAsLazyPagingItems
 import com.example.airlineapp.domain.model.FlightItemModel
 import com.example.airlineapp.presentation.FlightList.Components.AirlineItem
 import com.example.airlineapp.presentation.Screen
@@ -48,8 +50,9 @@ import com.example.airlineapp.presentation.Screen
 fun FlightListScreen(
     navController: NavController,
     viewModel: FlightListViewModel = hiltViewModel()) {
-    val state = viewModel.state.value
 
+    // Collect paginated flights
+    val flights = viewModel.flightsPagingFlow.collectAsLazyPagingItems()
     var searchText by remember { mutableStateOf("") }
 
     Scaffold(
@@ -69,46 +72,45 @@ fun FlightListScreen(
         },
         containerColor = MaterialTheme.colorScheme.background
     ) { paddingValues ->
-        Box(
+        Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
         ) {
-            Column(
-                modifier = Modifier.fillMaxSize()
-            ) {
-                // Search Bar - persistent and only visible when there are items
-                if (state.flights.isNotEmpty()) {
-                    OutlinedTextField(
-                        value = searchText,
-                        onValueChange = { searchText = it },
-                        placeholder = {
-                            Text(text = "Search airlines")
-                        },
-                        leadingIcon = {
-                            Icon(
-                                imageVector = Icons.Default.Search,
-                                contentDescription = "Search"
-                            )
-                        },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 16.dp, vertical = 8.dp),
-                        shape = RoundedCornerShape(12.dp)
-                    )
-                }
 
-                // Airlines List
-                LazyColumn(
+            if (flights.itemCount > 0 || flights.loadState.refresh is LoadState.Loading) {
+                OutlinedTextField(
+                    value = searchText,
+                    onValueChange = { searchText = it },
+                    placeholder = {
+                        Text(text = "Search airlines")
+                    },
+                    leadingIcon = {
+                        Icon(
+                            imageVector = Icons.Default.Search,
+                            contentDescription = "Search"
+                        )
+                    },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .weight(1f),
-                    contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
-                    verticalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
-                    items(state.flights) { airline ->
+                        .padding(horizontal = 16.dp, vertical = 8.dp),
+                    shape = RoundedCornerShape(12.dp)
+                )
+            }
+
+
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f),
+                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                items(count = flights.itemCount) { index ->
+                    val airline = flights[index]
+                    airline?.let {
                         AirlineItem(
-                            airline = airline,
+                            airline = it,
                             onItemClick = { selectedAirline ->
                                 navController.navigate(
                                     Screen.FlightDetailsScreen.createRoute(selectedAirline.id)
@@ -117,24 +119,64 @@ fun FlightListScreen(
                         )
                     }
                 }
-            }
 
-            // Error state
-            if (state.error.isNotBlank()) {
-                Text(
-                    text = state.error,
-                    color = MaterialTheme.colorScheme.error,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 20.dp)
-                        .align(Alignment.Center)
-                )
-            }
+                flights.apply {
+                    when {
+                        loadState.refresh is LoadState.Loading -> {
+                            item {
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(16.dp),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    CircularProgressIndicator()
+                                }
+                            }
+                        }
 
-            // Loading state
-            if (state.isLoading) {
-                CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+                        loadState.append is LoadState.Loading -> {
+                            item {
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(16.dp),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    CircularProgressIndicator()
+                                }
+                            }
+                        }
+
+                        loadState.refresh is LoadState.Error -> {
+                            val e = flights.loadState.refresh as LoadState.Error
+                            item {
+                                Text(
+                                    text = "Error: ${e.error.localizedMessage}",
+                                    color = MaterialTheme.colorScheme.error,
+                                    textAlign = TextAlign.Center,
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(16.dp)
+                                )
+                            }
+                        }
+
+                        loadState.append is LoadState.Error -> {
+                            val e = flights.loadState.append as LoadState.Error
+                            item {
+                                Text(
+                                    text = "Error loading more: ${e.error.localizedMessage}",
+                                    color = MaterialTheme.colorScheme.error,
+                                    textAlign = TextAlign.Center,
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(16.dp)
+                                )
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -181,26 +223,3 @@ fun BottomNavigation() {
         )
     }
 }
-//
-//fun getAirlinesList(): List<FlightItemModel> {
-//    return listOf(
-//        FlightItemModel(
-//            country = "Germany",
-//            fleet_size = 459,
-//            headquarters = "dellhi",
-//            id = "1",
-//            logo_url = "https://cdn.allthepics.net/images/2025/07/03/jet2.jpeg",
-//            name = "EasyJet",
-//            website = "www.google.com"
-//        ),
-//        FlightItemModel(
-//            country = "Germany",
-//            fleet_size = 459,
-//            headquarters = "dellhi",
-//            id = "1",
-//            logo_url = "https://cdn.allthepics.net/images/2025/07/03/jet2.jpeg",
-//            name = "EasyJet",
-//            website = "www.google.com"
-//        )
-//    )
-//}

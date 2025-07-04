@@ -79,7 +79,7 @@ fun AirlineItem(
                         )
                     }
 
-                    // Show fallback text when image URL is empty or image failed to load
+
                     if (airline.logo_url.isNullOrBlank() || imageLoadFailed) {
                         Text(
                             text = airline.name.take(2).uppercase(),
