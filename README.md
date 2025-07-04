@@ -130,6 +130,10 @@ https://github.com/typicode/json-server/tree/v0
 - add db.json (which i have attached in webserver-files>db.json) in this project
 -  add this to your  scripts"serve-json": "json-server --watch db.json --host 10.0.2.2 --port 3000"
 ```bash
+json-server --watch db.json --host 10.0.2.2 --port 3000
+```
+or if you have added script from my webserver-files/package.json then 
+```bash
 npm run serve-json
 ```
 
@@ -247,12 +251,40 @@ If testing on a physical device, you'll need to:
 - uses http://10.0.2.2:3000/flights?_page=2. to paginate
 
 
-## 📱 Screenshots
+### 📱 App Screenshots
 
-![](images/flight_list.png)  
-![](images/flight_details.png)  
-![](images/favorites_screen.png)  
-![](images/dark_mode.png)  
+<table>
+  <tr>
+    <td align="center">
+      <strong>Main Screen</strong><br/>
+      <img src="https://cdn.allthepics.net/images/2025/07/04/main_working.png" width="350"/>
+    </td>
+    <td align="center">
+      <strong>Favourites</strong><br/>
+      <img src="https://cdn.allthepics.net/images/2025/07/04/fav_screen.png" width="350"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <strong>Empty Favourites</strong><br/>
+      <img src="https://cdn.allthepics.net/images/2025/07/04/fav_empty.png" width="350"/>
+    </td>
+    <td align="center">
+      <strong>No Internet</strong><br/>
+      <img src="https://cdn.allthepics.net/images/2025/07/04/noInternet.png" width="350"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <strong>Detail Screen</strong><br/>
+      <img src="https://cdn.allthepics.net/images/2025/07/04/detail_screen.png" width="350"/>
+    </td>
+    <td align="center">
+      <strong>No Image Preview</strong><br/>
+      <img src="https://cdn.allthepics.net/images/2025/07/04/noImage_preview.png" width="350"/>
+    </td>
+  </tr>
+</table>
 
 ---
 
