@@ -1,0 +1,19 @@
+{
+  "name": "airline-app-server",
+  "version": "1.0.0",
+  "description": "Local JSON server for Airline App development and testing",
+  "scripts": {
+    "serve-json": "json-server --watch db.json --host 10.0.2.2 --port 3000"
+  },
+  "devDependencies": {
+    "json-server": "^0.17.4"
+  },
+  "keywords": [
+    "json-server",
+    "android",
+    "airline",
+    "mock-api"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

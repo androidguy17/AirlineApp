@@ -13,3 +13,17 @@
 .externalNativeBuild
 .cxx
 local.properties
+/.idea/.gitignore
+/.idea/AndroidProjectSystem.xml
+/.idea/compiler.xml
+/.idea/deploymentTargetSelector.xml
+/.idea/deviceManager.xml
+/.kotlin/errors/errors-1751636156255.log
+/.idea/gradle.xml
+/.idea/migrations.xml
+/.idea/misc.xml
+/PagingImplementationGuide.md
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/runConfigurations.xml
+/.idea/studiobot.xml
+/.idea/vcs.xml
